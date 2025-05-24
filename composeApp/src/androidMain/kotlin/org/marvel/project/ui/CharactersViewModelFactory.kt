@@ -6,20 +6,14 @@ import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.request.header
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.marvel.project.domain.MarvelCharactersClient
 import org.marvel.project.domain.PublicKeyInterceptor
-import org.marvel.project.domain.RetrofitCharactersRepository
 import org.marvel.project.domain.CharactersService
-import okhttp3.OkHttpClient
-import org.marvel.project.domain.KtorCharactersRepository
-import org.marvel.project.domain.KtorMarvelCharactersClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import org.marvel.project.data.KtorCharactersRepository
+import org.marvel.project.data.KtorMarvelCharactersClient
 
 class CharactersViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

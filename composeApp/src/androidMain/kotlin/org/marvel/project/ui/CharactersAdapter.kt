@@ -1,10 +1,9 @@
-package org.marvel.project.domain
+package org.marvel.project.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.marvel.project.data.Character
-import org.marvel.project.ui.CharacterViewHolder
 import org.marvel.project.databinding.ListItemCharacterBinding
 
 class CharactersAdapter : RecyclerView.Adapter<CharacterViewHolder>() {

@@ -1,9 +1,6 @@
-package org.marvel.project.domain
+package org.marvel.project.data
 
-import org.marvel.project.data.Character
-import org.marvel.project.data.CharactersRepository
-
-class KtorCharactersRepository(private val apiClient: KtorMarvelCharactersClient) :
+class RetrofitCharactersRepository(private val apiClient: MarvelCharactersClient) :
     CharactersRepository {
 
     override suspend fun getCharacters(timestamp: Long, md5: String): List<Character> {

@@ -1,13 +1,11 @@
-package org.marvel.project.domain
+package org.marvel.project.data
 
-import com.google.gson.annotations.SerializedName
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import org.marvel.project.data.PUBLIC_KEY
 
 
 class KtorMarvelCharactersClient(private val client: HttpClient) {

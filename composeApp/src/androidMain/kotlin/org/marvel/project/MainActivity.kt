@@ -13,7 +13,7 @@ import org.marvel.project.ui.CharactersViewModelFactory
 import org.marvel.project.ui.ScreenState
 import org.marvel.project.ui.VerticalSpaceItemDecoration
 import kotlinx.coroutines.launch
-import org.marvel.project.domain.CharactersAdapter
+import org.marvel.project.ui.CharactersAdapter
 import org.marvel.project.data.Character
 
 class MainActivity : ComponentActivity() {

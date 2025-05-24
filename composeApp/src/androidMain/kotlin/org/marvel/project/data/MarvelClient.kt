@@ -1,6 +1,5 @@
-package org.marvel.project.domain
+package org.marvel.project.data
 
-import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
