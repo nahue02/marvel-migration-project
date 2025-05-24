@@ -17,6 +17,7 @@ interface MarvelCharactersClient {
 
 }
 
+/*
 data class CharactersResponse(
     @SerializedName("data") val characters: CharacterData
 )
@@ -41,3 +42,5 @@ data class Thumbnail(
         return "$path.$extension"
     }
 }
+
+ */

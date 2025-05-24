@@ -2,7 +2,6 @@ package org.marvel.project
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +13,7 @@ import org.marvel.project.ui.CharactersViewModelFactory
 import org.marvel.project.ui.ScreenState
 import org.marvel.project.ui.VerticalSpaceItemDecoration
 import kotlinx.coroutines.launch
-import org.marvel.project.data.CharactersAdapter
+import org.marvel.project.domain.CharactersAdapter
 import org.marvel.project.data.Character
 
 class MainActivity : ComponentActivity() {
