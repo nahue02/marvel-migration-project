@@ -1,5 +1,6 @@
 package org.marvel.project
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
@@ -13,8 +14,11 @@ import org.marvel.project.ui.CharactersViewModelFactory
 import org.marvel.project.ui.ScreenState
 import org.marvel.project.ui.VerticalSpaceItemDecoration
 import kotlinx.coroutines.launch
+import org.marvel.project.data.database.AppDriverFactory
+import org.marvel.project.data.database.DatabaseModule
 import org.marvel.project.ui.CharactersAdapter
-import org.marvel.project.data.Character
+import org.marvel.project.data.local.Character
+import org.marvel.project.data.local.CharacterDao
 
 class MainActivity : ComponentActivity() {
     //enableEdgeToEdge()
@@ -36,8 +40,13 @@ class MainActivity : ComponentActivity() {
         }
 
         // Listen to Retrofit response
+
+        val driverFactory = AppDriverFactory(this)
+        val database = DatabaseModule(driverFactory).database
+        val characterDao = CharacterDao(database)
+
         val viewModel =
-            ViewModelProvider(this, CharactersViewModelFactory())[CharactersViewModel::class.java]
+            ViewModelProvider(this, CharactersViewModelFactory(characterDao))[CharactersViewModel::class.java]
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.screenState.collect {

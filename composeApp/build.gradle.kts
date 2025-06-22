@@ -7,7 +7,21 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("app.cash.sqldelight") version "2.1.0"
     kotlin("plugin.serialization") version "2.1.21"
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("org.marvel.project")
+        }
+    }
 }
 
 kotlin {
@@ -30,8 +44,15 @@ kotlin {
     }
     
     sourceSets {
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+            implementation(libs.native.driver)
+        }
         
         androidMain.dependencies {
+            implementation(libs.android.driver)
+            implementation(libs.ktor.client.okhttp)
+            implementation(libs.kotlinx.coroutines.android)
             implementation(libs.picasso)
             implementation(libs.retrofit)
             implementation(libs.converter.gson)
@@ -41,9 +62,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
-            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
             implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.okhttp) // O ktor-client-cio para multiplataforma
+            implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(compose.runtime)

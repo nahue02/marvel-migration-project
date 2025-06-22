@@ -1,10 +1,17 @@
 package org.marvel.project.data
 
-class KtorCharactersRepository(private val apiClient: KtorMarvelCharactersClient) :
+import org.marvel.project.data.local.Character
+import org.marvel.project.data.local.CharacterDao
+
+class KtorCharactersRepository(
+    private val apiClient: KtorMarvelCharactersClient,
+    private val characterDao: CharacterDao
+    ) :
     CharactersRepository {
 
     override suspend fun getCharacters(timestamp: Long, md5: String): List<Character> {
-        return apiClient.getAllCharacters(timestamp, md5).toModel()
+        val characters = apiClient.getAllCharacters(timestamp, md5).toModel()
+        return characters
     }
 
     private fun CharactersResponse.toModel(): List<Character> {

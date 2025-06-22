@@ -1,0 +1,16 @@
+CREATE TABLE Character (
+    id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    description TEXT,
+    thumbailUrl TEXT
+);
+
+selectAll:
+SELECT * FROM Character;
+
+insert:
+INSERT INTO Character(id, name, description, thumbailUrl)
+VALUES (?,?,?,?);
+
+deleteAll:
+DELETE FROM Character;

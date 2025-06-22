@@ -2,8 +2,9 @@ package org.marvel.project.domain
 
 import org.marvel.project.data.PRIVATE_KEY
 import org.marvel.project.data.PUBLIC_KEY
-import org.marvel.project.data.Character
+import org.marvel.project.data.local.Character
 import org.marvel.project.data.CharactersRepository
+import org.marvel.project.data.local.CharacterDao
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -15,6 +16,7 @@ class CharactersService(private val charactersRepository: CharactersRepository) 
             timestamp,
             md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY)
         )
+
         return sort(characters)
     }
 

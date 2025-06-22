@@ -2,7 +2,7 @@ package org.marvel.project.ui
 
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import org.marvel.project.data.Character
+import org.marvel.project.data.local.Character
 import org.marvel.project.databinding.ListItemCharacterBinding
 
 class CharacterViewHolder(private val binding: ListItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {

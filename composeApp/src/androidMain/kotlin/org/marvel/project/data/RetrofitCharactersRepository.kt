@@ -1,5 +1,7 @@
 package org.marvel.project.data
 
+import org.marvel.project.data.local.Character
+
 class RetrofitCharactersRepository(private val apiClient: MarvelCharactersClient) :
     CharactersRepository {
 
