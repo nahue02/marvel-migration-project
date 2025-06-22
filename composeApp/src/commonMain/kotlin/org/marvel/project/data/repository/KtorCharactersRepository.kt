@@ -1,11 +1,12 @@
-package org.marvel.project.data
+package org.marvel.project.data.repository
 
+import org.marvel.project.data.network.CharactersResponse
+import org.marvel.project.data.network.KtorMarvelCharactersClient
 import org.marvel.project.data.local.Character
-import org.marvel.project.data.local.CharacterDao
+import org.marvel.project.domain.CharactersRepository
 
 class KtorCharactersRepository(
     private val apiClient: KtorMarvelCharactersClient,
-    private val characterDao: CharacterDao
     ) :
     CharactersRepository {
 

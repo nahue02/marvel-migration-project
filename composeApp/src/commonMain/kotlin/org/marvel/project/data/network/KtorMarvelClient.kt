@@ -1,19 +1,26 @@
-package org.marvel.project.data
+package org.marvel.project.data.network
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import io.ktor.client.statement.bodyAsText
+import io.ktor.client.statement.request
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
 class KtorMarvelCharactersClient(private val client: HttpClient) {
     suspend fun getAllCharacters(timestamp: Long, md5: String): CharactersResponse {
-        return client.get("v1/public/characters") {
+        val response = client.get("/v1/public/characters") {
             parameter("ts", timestamp)
             parameter("hash", md5)
-        }.body()
+        }
+
+        print("URl: " + response.request.url.toString())
+        println("Respuesta: \n" + response.bodyAsText())
+
+        return response.body()
     }
 }
 

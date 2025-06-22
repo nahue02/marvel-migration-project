@@ -1,6 +1,5 @@
 package org.marvel.project
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
@@ -9,14 +8,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.marvel.project.databinding.ActivityMainBinding
-import org.marvel.project.ui.CharactersViewModel
-import org.marvel.project.ui.CharactersViewModelFactory
-import org.marvel.project.ui.ScreenState
-import org.marvel.project.ui.VerticalSpaceItemDecoration
+import org.marvel.project.ui.characters.CharactersViewModel
+import org.marvel.project.ui.characters.CharactersViewModelFactory
+import org.marvel.project.ui.characters.ScreenState
+import org.marvel.project.ui.components.VerticalSpaceItemDecoration
 import kotlinx.coroutines.launch
 import org.marvel.project.data.database.AppDriverFactory
 import org.marvel.project.data.database.DatabaseModule
-import org.marvel.project.ui.CharactersAdapter
+import org.marvel.project.ui.characters.CharactersAdapter
 import org.marvel.project.data.local.Character
 import org.marvel.project.data.local.CharacterDao
 

@@ -1,4 +1,4 @@
-package org.marvel.project.ui
+package org.marvel.project.ui.characters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

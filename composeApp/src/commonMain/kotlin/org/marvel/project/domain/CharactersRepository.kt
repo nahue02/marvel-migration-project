@@ -1,4 +1,4 @@
-package org.marvel.project.data
+package org.marvel.project.domain
 
 import org.marvel.project.data.local.Character
 

@@ -1,4 +1,4 @@
-package org.marvel.project.ui
+package org.marvel.project.ui.characters
 
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso

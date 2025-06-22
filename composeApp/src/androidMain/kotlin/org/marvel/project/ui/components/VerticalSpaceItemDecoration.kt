@@ -1,4 +1,4 @@
-package org.marvel.project.ui
+package org.marvel.project.ui.components
 
 import android.graphics.Rect
 import android.view.View

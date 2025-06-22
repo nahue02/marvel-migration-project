@@ -1,46 +1,51 @@
-package org.marvel.project.domain
+package org.marvel.project.data.network
 
+import com.soywiz.krypto.md5
+import kotlinx.datetime.Clock
 import org.marvel.project.data.PRIVATE_KEY
 import org.marvel.project.data.PUBLIC_KEY
 import org.marvel.project.data.local.Character
-import org.marvel.project.data.CharactersRepository
+import org.marvel.project.domain.CharactersRepository
 import org.marvel.project.data.local.CharacterDao
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 
-class CharactersService(private val charactersRepository: CharactersRepository) {
+class CharactersService(
+    private val charactersRepository: CharactersRepository,
+    private val characterDao: CharacterDao
+    ) {
 
     suspend fun getCharacters(): List<Character> {
-        val timestamp = System.currentTimeMillis()
-        val characters = charactersRepository.getCharacters(
-            timestamp,
-            md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY)
-        )
+        var characters: List<Character> = listOf()
+
+        try {
+            val timestamp = Clock.System.now().toEpochMilliseconds()
+            val md5 = md5(timestamp.toString() + PRIVATE_KEY + PUBLIC_KEY)
+            characters = charactersRepository.getCharacters(timestamp, md5)
+
+            println("Successful connection to API...")
+            characterDao.deleteAllCharacters()
+            characters.forEach { characterDao.insertCharacter(it) }
+
+        } catch (e: Exception) {
+            println(e.message)
+            println("Unsuccessful connection to API...")
+            characters = characterDao.getAllCharacters()
+        }
 
         return sort(characters)
     }
 
     private fun md5(string: String): String {
-        val MD5 = "MD5"
-        try {
-            // Create MD5 Hash
-            val digest = MessageDigest
-                .getInstance(MD5)
-            digest.update(string.toByteArray())
-            val messageDigest = digest.digest()
+        return try {
+            println("Calculating MD5...")
+            val md5 = string.encodeToByteArray().md5().hex
+            println("Done calculating MD5...")
+            println(md5)
+            md5
 
-            // Create Hex String
-            val hexString = StringBuilder()
-            for (aMessageDigest in messageDigest) {
-                var h = Integer.toHexString(0xFF and aMessageDigest.toInt())
-                while (h.length < 2) h = "0$h"
-                hexString.append(h)
-            }
-            return hexString.toString()
-        } catch (e: NoSuchAlgorithmException) {
-            e.printStackTrace()
+        } catch (e: Exception) {
+            println("MD5 Exception: " + e.message)
+            ""
         }
-        return ""
     }
 
     private fun sort(characters: List<Character>): List<Character> {
