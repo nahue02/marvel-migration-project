@@ -1,6 +1,5 @@
-package org.marvel.project.ui.characters
+package org.marvel.project.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import org.marvel.project.data.network.CharactersService
@@ -8,6 +7,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import org.marvel.project.ui.screens.ScreenState
 
 class CharactersViewModel(private val charactersService: CharactersService) : ViewModel() {
 
@@ -15,8 +15,7 @@ class CharactersViewModel(private val charactersService: CharactersService) : Vi
     val screenState: Flow<ScreenState> = _screenState
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-        Log.e("CharactersViewModel", "Error retrieving characters: ${throwable.message}")
-
+        println("CharactersViewModel - Error retrieving characters: ${throwable.message}")
     }
 
     init {

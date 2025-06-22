@@ -8,5 +8,4 @@ actual class AppDriverFactory {
     actual fun createDriver(): SqlDriver {
         return NativeSqliteDriver(Database.Schema, "app.db")
     }
-
 }

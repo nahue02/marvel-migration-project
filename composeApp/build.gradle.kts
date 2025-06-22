@@ -45,11 +45,13 @@ kotlin {
     
     sourceSets {
         iosMain.dependencies {
+            implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.0-alpha06")
             implementation(libs.ktor.client.darwin)
             implementation(libs.native.driver)
         }
         
         androidMain.dependencies {
+            implementation("io.coil-kt.coil3:coil-android:3.0.0-alpha06")
             implementation(libs.android.driver)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.kotlinx.coroutines.android)
@@ -63,6 +65,7 @@ kotlin {
 
         }
         commonMain.dependencies {
+            implementation("io.coil-kt.coil3:coil-compose:3.0.0-alpha06")
             implementation(libs.krypto)
             implementation(libs.kotlinx.datetime)
             implementation(libs.ktor.client.core)

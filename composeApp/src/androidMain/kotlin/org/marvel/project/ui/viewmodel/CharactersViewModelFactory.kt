@@ -1,4 +1,4 @@
-package org.marvel.project.ui.characters
+package org.marvel.project.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
