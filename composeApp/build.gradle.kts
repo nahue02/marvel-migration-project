@@ -60,6 +60,7 @@ kotlin {
             implementation(libs.androidx.constraintlayout)
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
         }
         commonMain.dependencies {
             implementation(libs.krypto)
