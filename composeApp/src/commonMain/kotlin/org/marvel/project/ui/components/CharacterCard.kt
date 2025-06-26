@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun CharacterCard(name: String, description: String, imageUrl: String) {
@@ -49,9 +50,7 @@ fun CharacterCard(name: String, description: String, imageUrl: String) {
                     .clip(RoundedCornerShape(8.dp))
             )
             Spacer(modifier = Modifier.width(12.dp))
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
+            Column {
                 Text(
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
@@ -70,3 +69,4 @@ fun CharacterCard(name: String, description: String, imageUrl: String) {
         }
     }
 }
+
