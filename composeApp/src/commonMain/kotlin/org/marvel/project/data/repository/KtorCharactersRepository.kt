@@ -2,8 +2,8 @@ package org.marvel.project.data.repository
 
 import org.marvel.project.data.network.CharactersResponse
 import org.marvel.project.data.network.KtorMarvelCharactersClient
-import org.marvel.project.data.local.Character
-import org.marvel.project.domain.CharactersRepository
+import org.marvel.project.domain.model.Character
+import org.marvel.project.domain.repository.CharactersRepository
 
 class KtorCharactersRepository(
     private val apiClient: KtorMarvelCharactersClient,

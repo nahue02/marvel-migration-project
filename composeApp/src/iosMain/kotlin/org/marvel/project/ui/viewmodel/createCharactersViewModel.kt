@@ -1,7 +1,7 @@
 package org.marvel.project.ui.viewmodel
 
 import io.ktor.client.HttpClient
-import org.marvel.project.data.local.CharacterDao
+import org.marvel.project.data.database.CharacterDao
 import org.marvel.project.data.network.provideCharacterService
 import org.marvel.project.data.network.provideHttpClient
 

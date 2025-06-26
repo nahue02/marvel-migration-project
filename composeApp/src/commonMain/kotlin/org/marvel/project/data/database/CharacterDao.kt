@@ -1,7 +1,8 @@
-package org.marvel.project.data.local
+package org.marvel.project.data.database
 
 import org.marvel.project.CharacterQueries
 import org.marvel.project.Database
+import org.marvel.project.domain.model.Character
 
 class CharacterDao(database: Database) {
     private val characterQueries: CharacterQueries = database.characterQueries

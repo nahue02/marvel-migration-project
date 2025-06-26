@@ -1,6 +1,6 @@
 package org.marvel.project.ui.screens
 
-import org.marvel.project.data.local.Character
+import org.marvel.project.domain.model.Character
 
 sealed class ScreenState {
 

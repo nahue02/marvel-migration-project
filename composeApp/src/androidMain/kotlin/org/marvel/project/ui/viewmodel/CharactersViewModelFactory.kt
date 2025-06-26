@@ -2,7 +2,7 @@ package org.marvel.project.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.marvel.project.data.local.CharacterDao
+import org.marvel.project.data.database.CharacterDao
 import org.marvel.project.data.network.provideCharacterService
 import org.marvel.project.data.network.provideHttpClient
 

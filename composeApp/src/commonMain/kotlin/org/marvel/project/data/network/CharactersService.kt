@@ -4,9 +4,9 @@ import com.soywiz.krypto.md5
 import kotlinx.datetime.Clock
 import org.marvel.project.data.PRIVATE_KEY
 import org.marvel.project.data.PUBLIC_KEY
-import org.marvel.project.data.local.Character
-import org.marvel.project.domain.CharactersRepository
-import org.marvel.project.data.local.CharacterDao
+import org.marvel.project.domain.model.Character
+import org.marvel.project.domain.repository.CharactersRepository
+import org.marvel.project.data.database.CharacterDao
 
 class CharactersService(
     private val charactersRepository: CharactersRepository,

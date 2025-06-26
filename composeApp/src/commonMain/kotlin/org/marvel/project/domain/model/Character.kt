@@ -1,4 +1,4 @@
-package org.marvel.project.data.local
+package org.marvel.project.domain.model
 
 data class Character(
     val id: Long,

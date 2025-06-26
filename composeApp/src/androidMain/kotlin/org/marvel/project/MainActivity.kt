@@ -9,7 +9,7 @@ import org.marvel.project.ui.viewmodel.CharactersViewModel
 import org.marvel.project.ui.viewmodel.CharactersViewModelFactory
 import org.marvel.project.data.database.AppDriverFactory
 import org.marvel.project.data.database.DatabaseModule
-import org.marvel.project.data.local.CharacterDao
+import org.marvel.project.data.database.CharacterDao
 
 class MainActivity : ComponentActivity() {
     //enableEdgeToEdge()
