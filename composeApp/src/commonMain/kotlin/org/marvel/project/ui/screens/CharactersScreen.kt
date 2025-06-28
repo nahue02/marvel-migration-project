@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -27,16 +29,29 @@ fun CharactersScreen(viewModel: CharactersViewModel) {
         }
         is ScreenState.ShowCharacters -> {
             val characters = (screenState as ScreenState.ShowCharacters).list
-            LazyColumn(
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(characters) { character ->
-                    CharacterCard(
-                        character.name,
-                        character.description,
-                        character.thumbnailUrl
+
+            if(characters.isEmpty()) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "No se han encontrado personajes.",
+                        style = MaterialTheme.typography.titleLarge
                     )
+                }
+            } else {
+                LazyColumn(
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(characters) { character ->
+                        CharacterCard(
+                            character.name,
+                            character.description,
+                            character.thumbnailUrl
+                        )
+                    }
                 }
             }
         }

@@ -17,7 +17,7 @@ class KtorMarvelCharactersClient(private val client: HttpClient) {
             parameter("hash", md5)
         }
 
-        print("URl: " + response.request.url.toString())
+        println("URl: " + response.request.url.toString())
         println("Respuesta: \n" + response.bodyAsText())
 
         return response.body()
